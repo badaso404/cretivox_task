@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="style.css" />
+      <script
+        src="https://kit.fontawesome.com/f857e4a682.js"
+        crossorigin="anonymous"
+      ></script>
+      <script src="https://cdn.jsdelivr.net/npm/typeit@7/dist/typeit.min.js"></script>
+  
+    <title>React App</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <script>
+      var tablinks = document.getElementsByClassName("tab-links");
+      var tabcontents = document.getElementsByClassName("tab-contents");
+
+      function opentab(tabname) {
+        for (tablink of tablinks) {
+          tablink.classList.remove("active-link");
+        }
+        for (tabcontent of tabcontents) {
+          tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+      }
+    </script>
+
+    <script>
+      var sidemenu = document.getElementById("sidemenu");
+
+      function openmenu() {
+        sidemenu.style.right = "0";
+      }
+      function closemenu() {
+        sidemenu.style.right = "-200px";
+      }
+    </script>
+    <script>
+      const scriptURL =
+        "https://script.google.com/macros/s/AKfycbzAgigs5_A2k11mwce6bkA0kSDqXv_eooMSVOnljOiW55bBKfuHbOej4SG5k3NAiLqw/exec";
+      const form = document.forms["submit-to-google-sheet"];
+      const msg = document.getElementById("msg");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        fetch(scriptURL, { method: "POST", body: new FormData(form) })
+          .then((response) => {
+            msg.innerHTML = "Messege sent Successfully";
+            setTimeout(function () {
+              msg.innerHTML = "";
+            }, 5000);
+            form.reset();
+          })
+          .catch((error) => console.error("Error!", error.message));
+      });
+    </script>
+
+    <script>
+      new TypeIt("#typing", {
+        speed: 300,
+        loop: true,
+      }).go();
+    </script>
+
+    <script>
+      new TypeIt(".typing", {
+        speed: 50,
+        loop: true,
+      })
+        .type(" Hallo Semuanya")
+        .pause(1000)
+        .delete(14)
+        .type(" Salam Kenal")
+        .pause(1000)
+        .delete(11)
+        .type("Stay Healthy all !")
+        .go();
+    </script>
+
+    <script type="text/javascript" src="vanilla-tilt.min.js"></script>
+    <script type="text/javascript">
+      VanillaTilt.init(document.querySelector("#header"), {
+        max: 2,
+        speed: 10,
+      });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let container = document.body;
+
+        // Fungsi untuk membuat kembang api
+        function createFirework(x, y) {
+          let firework = document.createElement("div");
+          firework.className = "firework";
+          firework.style.left = x + "px";
+          firework.style.top = y + "px";
+          container.appendChild(firework);
+
+          // Hapus kembang api setelah beberapas saat BASDASC NXNDSBFSDAN ASJABDAN XBCXA CADA CSADA XANSD NA XJSA CXA
+          setTimeout(function () {
+            container.removeChild(firework);
+          }, 500);
+        }
+
+        // Event listener untuk mengikuti pergerakan kursor
+        container.addEventListener("mousemove", function (e) {
+          createFirework(e.pageX, e.pageY);
+        });
+      });
+    </script>
+  </body>
+</html>
